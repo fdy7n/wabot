@@ -21,6 +21,11 @@ module.exports = options = (headless, start) => {
     //     console.error(new Error('Google Chrome Is Not Installed'))
     //     process.exit(1)
     // }
+    (async() => {
+        const browser = await puppeteer.launch({
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        })
+    })
 
     const options = {
         headless: headless,
