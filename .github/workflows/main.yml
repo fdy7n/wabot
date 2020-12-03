@@ -1,4 +1,4 @@
-name: fuady-bot
+name: Deploy to Heroku
 
 on:
   push:
@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+      - uses: AkhileshNS/heroku-deploy@v3.6.8
         with:
           heroku_api_key: ${{f21846f2-e664-41fb-81e4-32b2f2d43b47}}
           heroku_app_name: "fuady-bot"
           heroku_email: "fuadynur7@gmail.com"
+          procfile: "web: npm start"
