@@ -1,16 +1,17 @@
-name: Tests
+name: fuady-bot
 
 on:
   push:
-    branches: [master]
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: npm run
-      - uses: fdy7n/heroku-deploy@master
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
         with:
-          heroku_api_key: ${{f21846f2-e664-41fb-81e4-32b2f2d43b47}}
+          heroku_api_key: ${{secrets.f21846f2-e664-41fb-81e4-32b2f2d43b47}}
           heroku_app_name: "fuady-bot"
           heroku_email: "fuadynur7@gmail.com"
